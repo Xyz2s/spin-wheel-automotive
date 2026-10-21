@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spin Wheel Automotive – Buy and sell quality used cars</title>
+<meta name="description" content="Spin Wheel Automotive: inspected used cars, honest pricing, and a fast way to sell your own car.">
+<meta name="theme-color" content="#101428">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%233342f5'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e6f94a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="car" viewBox="0 0 220 90">
+    <path fill="currentColor" d="M8 64c0-10 6-15 22-18l26-24c5-4 10-6 18-6h46c10 0 16 3 22 9l20 19c20 2 30 8 30 20v8H8z"/>
+    <path fill="#fff" fill-opacity=".85" d="M66 28l-18 17h44V24H78c-5 0-8 1-12 4zm34-4v21h50l-16-15c-4-4-8-6-14-6z"/>
+    <g class="w"><circle cx="58" cy="68" r="16" fill="#101428"/><circle cx="58" cy="68" r="8" fill="#c9cedf"/><path d="M58 60v16M50 68h16" stroke="#101428" stroke-width="3"/></g>
+    <g class="w"><circle cx="168" cy="68" r="16" fill="#101428"/><circle cx="168" cy="68" r="8" fill="#c9cedf"/><path d="M168 60v16M160 68h16" stroke="#101428" stroke-width="3"/></g>
+  </symbol>
+</svg>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#top" aria-label="Spin Wheel Automotive home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#3342f5"/><circle cx="16" cy="16" r="5" fill="#e6f94a"/><path d="M16 4v7M16 21v7M4 16h7M21 16h7" stroke="#fff" stroke-width="2.5"/></svg>
+      Spin Wheel
+    </a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#stock">Cars</a></li>
+        <li><a href="#sell">Sell your car</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#voices">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <h1>Cars that are ready to roll.</h1>
+    <p>Spin Wheel Automotive sells inspected used cars at clear prices, and gives you a straight offer when it is time to sell yours.</p>
+    <div class="cta">
+      <a class="btn" href="#stock">Browse cars</a>
+      <a class="btn line" href="#sell">Value my car</a>
+    </div>
+  </div>
+  <div class="wheel" aria-hidden="true">
+    <svg viewBox="0 0 400 400"><circle cx="200" cy="200" r="196" fill="currentColor"/><circle cx="200" cy="200" r="170" fill="none" stroke="#3342f5" stroke-width="3" stroke-dasharray="4 7"/><g id="rotor"></g><circle cx="200" cy="200" r="34" fill="#e6f94a"/><circle cx="200" cy="200" r="12" fill="#101428"/></svg>
+  </div>
+  <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
+</section>
+
+<section class="stock" id="stock">
+  <div class="wrap">
+    <div class="stock-head">
+      <h2>Fresh on the lot</h2>
+      <p>Every car passes a multi-point inspection before it is listed. Filter by body style or search by name.</p>
+    </div>
+    <div class="tools">
+      <div id="chips" role="group" aria-label="Filter by body style" style="display:flex;flex-wrap:wrap;gap:.5rem"></div>
+      <input id="q" type="search" placeholder="Search make or model" aria-label="Search cars">
+      <select id="sort" aria-label="Sort cars">
+        <option value="new">Newest first</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="sell" id="sell">
+  <div class="wrap">
+    <div>
+      <h2>What is your car worth?</h2>
+      <p class="lead">Get an instant ballpark, then send it to us for a firm offer within one business day.</p>
+      <form id="est" novalidate>
+        <div class="pair">
+          <div class="field"><label for="year">Year</label><select id="year"></select></div>
+          <div class="field"><label for="body">Body style</label>
+            <select id="body"><option value="1">Sedan</option><option value="1.12">SUV</option><option value="1.2">Truck</option><option value="1.18">Coupe</option><option value="0.95">Hatchback</option></select></div>
+        </div>
+        <div class="field"><label for="miles">Mileage: <span id="milesOut">60,000</span> mi</label>
+          <input id="miles" type="range" min="5000" max="200000" step="5000" value="60000"></div>
+        <div class="field"><label for="cond">Condition</label>
+          <select id="cond"><option value="1.08">Excellent</option><option value="1" selected>Good</option><option value="0.88">Fair</option></select></div>
+      </form>
+    </div>
+    <div class="read">
+      <small>Estimated trade-in range</small>
+      <output id="val" for="year body miles cond">$0</output>
+      <div>
+        <small>Indicative only. Final offers depend on an in-person inspection.</small><br><br>
+        <a class="btn" href="#contact" id="sendEst">Get a firm offer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <h2>From first click to keys</h2>
+    <ol class="steps">
+      <li><h3>Pick or value</h3><p>Browse the lot or get an instant estimate for your own car.</p></li>
+      <li><h3>Tell us more</h3><p>Send a quick message. We reply within one business day.</p></li>
+      <li><h3>Inspect and drive</h3><p>Book a visit, take a test drive, or bring your car for inspection.</p></li>
+      <li><h3>Sign and go</h3><p>We handle the paperwork. You leave with the keys or the payment.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="voices" id="voices">
+  <div class="wrap">
+    <h2>Heard from our customers</h2>
+    <div class="q">
+      <blockquote>Selling my car took one afternoon. The offer matched the estimate.<cite>Sarah W.</cite></blockquote>
+      <blockquote>I found the car I wanted at a fair price, with no pressure at all.<cite>Mike D.</cite></blockquote>
+      <blockquote>Quick answers, a big selection, and a team that picks up the phone.<cite>Jessica S.</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Talk to us</h2>
+      <p style="margin-top:1rem;max-width:26rem">Ask about a car, book a test drive, or tell us what you want to sell.</p>
+      <ul>
+        <li><b>Email</b><a href="mailto:hello@spinwheelautomotive.com">hello@spinwheelautomotive.com</a></li>
+        <li><b>Phone</b><a href="tel:+15178789107">+1 (517) 878-9107</a></li>
+        <li><b>Hours</b>Mon–Sat, 9 am to 6 pm</li>
+      </ul>
+    </div>
+    <form id="form" novalidate>
+      <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required><span class="err" data-for="name"></span></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" data-for="email"></span></div>
+      <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" required></textarea><span class="err" data-for="msg"></span></div>
+      <button class="btn" type="submit" id="send">Send message</button>
+      <p id="status" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="mark" aria-hidden="true">Spin Wheel</div>
+    <div class="foot">
+      <span>&copy; <span id="yr">2026</span> Spin Wheel Automotive. All rights reserved.</span>
+      <nav aria-label="Footer"><ul><li><a href="#stock">Cars</a></li><li><a href="#sell">Sell</a></li><li><a href="#how">How it works</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
